@@ -23,13 +23,16 @@ export class ConceptsComponent implements OnInit {
 
   // property binding related
   companyName = 'NTT';
-  isLoggedIn = true;
+  isLoggedIn = false;
 
   // two way binding related
   courseName = 'Angular';
 
   // custom event related
   dataReceivedFromChildComp;
+
+  // directives related
+  skillList: string[] = ['html', 'css', 'js', 'ts', 'ng'];
 
   constructor() {
   }
