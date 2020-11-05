@@ -91,6 +91,23 @@
         </div>
       </ng-template>
 
+      <!-- *ngIf -- in expanded version -- can be written like the following too -->
+      <ng-template [ngIf]="isLoggedIn">
+        <div class="alert alert-success">
+          <p>You are authenticated! You can access premium features of this app!</p>
+        </div>
+      </ng-template>
+
+      <div *appDemoIf>
+        <p>Wow</p>
+      </div>
+
+
+      <div >
+
+      </div>
+
+
       <h3>*ngFor</h3>
       <ul>
         <li *ngFor="let skill of skillList">{{skill}}</li>
@@ -99,7 +116,6 @@
       
       <!-- todo: ngSwitch -->
 
-
       <h3>Custom Attribute Directive</h3>
       <div appColorizer>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -107,8 +123,6 @@
           <button type="button" class="btn btn-primary">Click to Change Color</button>
         </div>
       </div>
-
-
     </div>
 
   </div>

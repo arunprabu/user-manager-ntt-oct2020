@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { ColorizerDirective } from './concepts/directives/colorizer.directive';
 import { UsersComponent } from './users/components/users.component';
 import { AddUserComponent } from './users/components/add-user/add-user.component';
 import { UserDetailsComponent } from './users/components/user-details/user-details.component';
+import { DemoIfDirective } from './concepts/directives/demo-if.directive';
 
 // Decorator
 // Main Switching Box
@@ -33,11 +34,13 @@ import { UserDetailsComponent } from './users/components/user-details/user-detai
     ColorizerDirective,
     UsersComponent,
     AddUserComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    DemoIfDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule, // formGroup will work
     FormsModule // ngModel
   ],
   providers: [],
