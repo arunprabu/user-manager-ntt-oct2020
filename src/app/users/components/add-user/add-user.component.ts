@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-add-user',
@@ -11,8 +12,9 @@ export class AddUserComponent implements OnInit {
 
   // Step 1: Have the HTML form tag equivalent in the TS
   userForm: FormGroup;
+  isSaved: boolean;
 
-  constructor() {
+  constructor(private userService: UserService) {  // Step 1 of CRUD App: connect to the service using dep injection
     console.log('Inside Constructor');
   }
 
@@ -22,9 +24,25 @@ export class AddUserComponent implements OnInit {
     // Step 1 continues...
     this.userForm = new FormGroup({
       // Step 2: Create form element equivalents in TS -- Refer HTML for step 3 & 4
-      name: new FormControl('', Validators.required), // Step 5: Work on Validations
-      phone: new FormControl('', Validators.required),
-      email: new FormControl('', [ Validators.required, Validators.email ]) // add multiple validators
+      name: new FormControl('arun', Validators.required), // Step 5: Work on Validations
+      phone: new FormControl('12412412', Validators.required),
+      email: new FormControl('a@b.com', [Validators.required, Validators.email]) // add multiple validators
     });
   }
+
+  addUserSubmitHandler() {
+    console.log('submitted');
+    console.log(this.userForm.value); // this.userForm will have form's state
+
+    //  Step 2 of CRUD App: send the data to the service's method
+    this.userService.createUser(this.userForm.value)
+      .subscribe((res: any) => { //  Step 3 of CRUD App. get the resp from service
+        console.log(res);
+        if (res && res.id) {
+          this.isSaved = true;
+        }
+      });
+  }
+
+  
 }

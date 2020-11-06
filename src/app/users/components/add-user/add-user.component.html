@@ -6,7 +6,7 @@
 
     </div>
     <!-- step3 patch up html form with the ts using [formGroup]-->
-    <form class="col-md-6 offset-md-3" [formGroup]="userForm">
+    <form class="col-md-6 offset-md-3" [formGroup]="userForm" (ngSubmit)="addUserSubmitHandler()">
       <div class="form-group row">
         <label for="staticName" class="col-sm-2 col-form-label">Name</label>
         <div class="col-sm-10">
@@ -44,7 +44,7 @@
         </div>
       </div>
 
-      <div class="alert alert-success">
+      <div class="alert alert-success" *ngIf="isSaved">
         Saved Successfully
       </div>
 

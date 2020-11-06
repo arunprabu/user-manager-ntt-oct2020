@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,7 +42,8 @@ import { DemoIfDirective } from './concepts/directives/demo-if.directive';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule, // formGroup will work
-    FormsModule // ngModel
+    FormsModule, // ngModel
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]  // AppModule should be bootstrapped with a component - AppComponent
