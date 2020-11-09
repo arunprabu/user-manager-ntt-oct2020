@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-details',
@@ -8,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDetailsComponent implements OnInit {
 
-  constructor() { }
+  userData: any;
 
-  ngOnInit(): void {
+  constructor( private userService: UserService, private route: ActivatedRoute ) {
+    console.log('inside Constructor');
+  }
+
+  ngOnInit(): void {  // life cycle hook
+    console.log('inside ngOnInit');
+
+    // Read URL param in angular
+    const USER_ID = this.route.snapshot.paramMap.get('userId');
+
+    // 1. connect to service using dep injection -- refer constructor
+    // 2. send a req to the service method
+    this.userService.getUserById( USER_ID )
+      .subscribe( (res: any) => {  // 3. get the resp from service
+        console.log(res);
+        this.userData = res;
+      });
+
   }
 
 }

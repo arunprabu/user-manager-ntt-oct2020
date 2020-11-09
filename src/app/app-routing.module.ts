@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'concepts', component: ConceptsComponent },
   { path: 'users', component: UsersComponent },
   { path: 'users/add', component: AddUserComponent },
-  { path: 'users/1', component: UserDetailsComponent },
+  { path: 'users/:userId', component: UserDetailsComponent }, // URL Param - userId
   { path: 'about', component: AboutComponent }
 ];
 
