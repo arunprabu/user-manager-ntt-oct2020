@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -36,7 +37,7 @@ export class AddUserComponent implements OnInit {
 
     //  Step 2 of CRUD App: send the data to the service's method
     this.userService.createUser(this.userForm.value)
-      .subscribe((res: any) => { //  Step 3 of CRUD App. get the resp from service
+      .subscribe((res: User) => { //  Step 3 of CRUD App. get the resp from service
         console.log(res);
         if (res && res.id) {
           this.isSaved = true;

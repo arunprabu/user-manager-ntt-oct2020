@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { User } from '../models/user';
 
 // Decorator
 @Injectable({
@@ -21,7 +22,7 @@ export class UserService {
     // 2.2. With what HTTP method we will hit the REST API? POST
     // 2.3. What is the client tool to connect to REST API? HttpClient
     return this.http.post(this.REST_API_URL, userFormData)
-      .pipe(map((res: any) => { // 3. get the resp from rest api
+      .pipe(map((res: User) => { // 3. get the resp from rest api
         console.log(res);
         // 4. send the resp back to comp.ts
         return res;
@@ -33,7 +34,7 @@ export class UserService {
     // send the req to the rest api
     // REST API URL, Method is GET, HttpClient
     return this.http.get(this.REST_API_URL)
-      .pipe(map((res: any) => { // get the resp from rest api
+      .pipe(map((res: User[]) => { // get the resp from rest api
         console.log(res);
         // send the resp back to comp.ts
         return res;
@@ -50,13 +51,23 @@ export class UserService {
     // 2.2. What's the HTTP method? -- GET
     // 2.3. What's the Http Client tool? - HttpClient
     return this.http.get(USER_DETAILS_URL)
-      .pipe(map((res: any) => {
+      .pipe(map((res: User) => {
         console.log(res);
         return res;
       }));
   }
 
   // update user
+  updateUser(userData) {
+    console.log(userData);
+
+    const UPDATE_REST_API_URL = `${this.REST_API_URL}/${userData.id}`;
+    return this.http.put(UPDATE_REST_API_URL, userData)
+      .pipe(map((res: User) => {
+        console.log(res);
+        return res;
+      }));
+  }
 
   // delete user
 
