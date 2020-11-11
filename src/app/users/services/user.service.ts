@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { User } from '../models/user';
+import { User } from '../models/user.model';
 
 // Decorator
 @Injectable({
@@ -14,28 +14,37 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   // create
-  createUser(userFormData) {  // 1. get the data from comp.ts
+  createUser(userFormData): Promise<User> {  // 1. get the data from comp.ts
     console.log(userFormData);
 
-    // 2. send the data to rest api
-    // 2.1. What's the REST API URL? 'http://jsonplaceholder.typicode.com/users/'
-    // 2.2. With what HTTP method we will hit the REST API? POST
-    // 2.3. What is the client tool to connect to REST API? HttpClient
-    return this.http.post(this.REST_API_URL, userFormData)
-      .pipe(map((res: User) => { // 3. get the resp from rest api
-        console.log(res);
-        // 4. send the resp back to comp.ts
-        return res;
-      }));
+    const addUserPromise = new Promise( (resolve, reject) => {
+      this.http.post(this.REST_API_URL, userFormData)
+        .toPromise()
+        .then((res: User) => {
+          console.log(res);
+          resolve(res);
+        })
+        .catch((err: any) => {
+          console.log(err);
+          reject(err);
+        })
+        .finally(() => {
+          console.log('Its Over');
+        });
+    });
+
+    return addUserPromise as Promise<User>;
   }
 
   // get
   getUsers() { // get the request from the comp.ts
+    console.log('Inside getUsers()');
     // send the req to the rest api
     // REST API URL, Method is GET, HttpClient
     return this.http.get(this.REST_API_URL)
       .pipe(map((res: User[]) => { // get the resp from rest api
         console.log(res);
+        // convert to json, filter, sort
         // send the resp back to comp.ts
         return res;
       }));

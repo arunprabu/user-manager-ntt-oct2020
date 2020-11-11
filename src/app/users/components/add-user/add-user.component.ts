@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../models/user';
+import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -31,19 +31,17 @@ export class AddUserComponent implements OnInit {
     });
   }
 
-  addUserSubmitHandler() {
+  async addUserSubmitHandler() {
     console.log('submitted');
     console.log(this.userForm.value); // this.userForm will have form's state
 
     //  Step 2 of CRUD App: send the data to the service's method
-    this.userService.createUser(this.userForm.value)
-      .subscribe((res: User) => { //  Step 3 of CRUD App. get the resp from service
-        console.log(res);
-        if (res && res.id) {
-          this.isSaved = true;
-        }
-      });
+    const status: User = await this.userService.createUser(this.userForm.value);
+    console.log(status);
+    if (status && status.id) {
+      this.isSaved = true;
+    }
   }
 
-  
+
 }
