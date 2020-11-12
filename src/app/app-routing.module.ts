@@ -10,6 +10,11 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'concepts', component: ConceptsComponent },
   { path: 'about', component: AboutComponent },
+  {
+    path: 'users', loadChildren: () => {
+      import('./users/users.module').then(m => m.UsersModule);
+    }
+  },
   { path: '**', component: PageNotFoundComponent }
 ];
 
