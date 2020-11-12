@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { User } from '../models/user.model';
+import { Observable } from 'rxjs';
 
 // Decorator
 @Injectable({
@@ -37,7 +38,7 @@ export class UserService {
   }
 
   // get
-  getUsers() { // get the request from the comp.ts
+  getUsers(): Observable<User[]> | Observable<any>{ // get the request from the comp.ts
     console.log('Inside getUsers()');
     // send the req to the rest api
     // REST API URL, Method is GET, HttpClient
@@ -47,11 +48,14 @@ export class UserService {
         // convert to json, filter, sort
         // send the resp back to comp.ts
         return res;
+      }), catchError( (err: any) => {
+        console.log(err);
+        return err;
       }));
   }
 
   // get user details
-  getUserById(id) {  // 1. get the req from comp ts
+  getUserById(id): Observable<User> {  // 1. get the req from comp ts
     console.log('Inside getUserById in Service');
     // 2. send the req to the rest api
     // 2.1 what's the URL?
@@ -79,6 +83,7 @@ export class UserService {
   }
 
   // delete user
+  // work with promise
 
   // search users
 

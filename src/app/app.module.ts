@@ -14,10 +14,10 @@ import { AboutComponent } from './about/about.component';
 import { CpbComponent } from './concepts/components/cpb/cpb.component';
 import { CebComponent } from './concepts/components/ceb/ceb.component';
 import { ColorizerDirective } from './concepts/directives/colorizer.directive';
-import { UsersComponent } from './users/components/users.component';
-import { AddUserComponent } from './users/components/add-user/add-user.component';
-import { UserDetailsComponent } from './users/components/user-details/user-details.component';
 import { DemoIfDirective } from './concepts/directives/demo-if.directive';
+import { UsersModule } from './users/users.module';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { ProductsModule } from './products/products.module';
 
 // Decorator
 // Main Switching Box
@@ -33,17 +33,15 @@ import { DemoIfDirective } from './concepts/directives/demo-if.directive';
     CpbComponent,
     CebComponent,
     ColorizerDirective,
-    UsersComponent,
-    AddUserComponent,
-    UserDetailsComponent,
-    DemoIfDirective
+    DemoIfDirective,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule, // formGroup will work
+    UsersModule, // will have feature related comps, modules, directives and feature routing also
+    AppRoutingModule, // all app routing
     FormsModule, // ngModel
-    HttpClientModule
+    ProductsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]  // AppModule should be bootstrapped with a component - AppComponent
