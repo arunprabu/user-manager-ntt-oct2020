@@ -37,10 +37,10 @@ import { ProductsModule } from './products/products.module';
   ],
   imports: [
     BrowserModule,
+    ProductsModule,
     UsersModule, // will have feature related comps, modules, directives and feature routing also
     AppRoutingModule, // all app routing
     FormsModule, // ngModel
-    ProductsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]  // AppModule should be bootstrapped with a component - AppComponent

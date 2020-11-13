@@ -6,7 +6,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { RouterModule } from '@angular/router';
 
-// Feature Routing Module
+// Feature Routing Configuration
 const usersRoutes = [
   { path: 'users', component: UsersComponent },
   { path: 'users/add', component: AddUserComponent },
