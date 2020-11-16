@@ -24,9 +24,6 @@ export class CartComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.cartSubscription.unsubscribe();
-    // if (this.cartItemList && this.cartItemList.length > 0) {
-    //   this.cartItemList.length = 0;
-    // }
   }
 
 }

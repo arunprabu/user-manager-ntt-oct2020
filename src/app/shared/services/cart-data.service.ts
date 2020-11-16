@@ -30,6 +30,10 @@ export class CartDataService {
   // update the cart items so that all the subscribers will get updates
   updateCart(pdt){
     console.log(pdt);
+
+    // send the above product to the backend to get it saved within cart.
+    // handle success and error
+    // if success do the following
     // keep the exisiting items and add one more into it
     this.latestCartItems.pipe(take(1)).subscribe( val => {
       console.log(val);
@@ -38,5 +42,8 @@ export class CartDataService {
       console.log(newArr);
       this.cartItemsList.next(newArr);
     });
+
+    // if error
+    // return the error from here so as to display toast message from the comp
   }
 }

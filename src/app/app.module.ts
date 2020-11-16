@@ -17,6 +17,8 @@ import { DemoIfDirective } from './concepts/directives/demo-if.directive';
 import { UsersModule } from './users/users.module';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { ProductsModule } from './products/products.module';
+import { SignupComponent } from './auth/components/signup/signup.component';
+import { LoginComponent } from './auth/components/login/login.component';
 
 // Decorator
 // Main Switching Box
@@ -33,7 +35,9 @@ import { ProductsModule } from './products/products.module';
     CebComponent,
     ColorizerDirective,
     DemoIfDirective,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
