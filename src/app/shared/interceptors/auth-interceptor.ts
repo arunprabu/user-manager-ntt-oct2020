@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 
-// ng g cl shared/interceptor/auth-interceptor
+// ng g cl shared/interceptors/auth-interceptor
 
 export class AuthInterceptor implements HttpInterceptor {
   // intercept http calls and manipulate http header with auth token

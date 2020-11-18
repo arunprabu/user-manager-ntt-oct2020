@@ -46,7 +46,7 @@ export class AuthService {
       })
       .finally(() => {
         console.log('Login is over!');
-      })
+      });
   }
 
   isAuthenticated() {

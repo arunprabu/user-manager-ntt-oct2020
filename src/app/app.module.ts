@@ -9,8 +9,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { ConceptsComponent } from './concepts/components/concepts.component';
@@ -26,6 +26,7 @@ import { SignupComponent } from './auth/components/signup/signup.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/interceptors/auth-interceptor';
+import { EllipsisPipe } from './shared/pipes/ellipsis.pipe';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -56,7 +57,8 @@ const firebaseConfig = {
     DemoIfDirective,
     PageNotFoundComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,
