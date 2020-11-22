@@ -67,7 +67,7 @@ const firebaseConfig = {
     AppRoutingModule, // all app routing
     FormsModule, // ngModel
 
-    AngularFireModule.initializeApp(firebaseConfig),   // will help us connect to firebase app 
+    AngularFireModule.initializeApp(firebaseConfig), // will help us connect to firebase app
     AngularFireAuthModule, // login
     AngularFirestoreModule, // signup
   ],

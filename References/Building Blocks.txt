@@ -1,0 +1,41 @@
+Building Blocks
+----
+  Components 
+  Directives 
+  Services 
+  Interfaces 
+  Models (ng g cl <name> + implement interface code )
+  Classes (ng g cl <name> )
+  Pipes 
+  Guards
+  Modules
+
+Concepts
+---
+  Routing 
+  Data Binding 
+  RxJS/Observables 
+  Subscription/Unsubscription
+  HttpInterceptor 
+
+CRUD App
+---
+  Prereq: Components, Directives, Databinding, 
+          Forms, Services, RxJS/Observables, Subscription/Unsubscription 
+
+
+
+===
+Integrating Third Party Tools, (bootstrap, modules, charts)
+Taking Build and Deployment 
+
+
+Unit Testing 
+Angular Library
+NgRX
+
+Angular JS v 1 migration tips 
+Webcomponents
+Angular JS v 1 app + Angular 2
+
+

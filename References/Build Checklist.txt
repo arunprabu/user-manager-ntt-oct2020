@@ -1,0 +1,29 @@
+Build Checklist
+---
+  1. Remove console logs 
+  2. Check for errors in console 
+  3. Remove alerts 
+  4. ngOnDestroy 
+      check whether you are clearing 
+      timeout, interval, unsubcribing, clearing data
+  5. Reduce or avoid the usage of any or object type
+      instead go for the custom datatype. -- try interface or model
+  6. Linting 
+  7. Remove unneccessary packages from package.json 
+      try npm prune 
+  
+
+Now, take the build 
+---
+  1. Development Build
+      (uncompressed files/unminified files) 
+
+      ng build 
+  2. Product Build 
+      (compressed files / minified files )
+  
+Build workflow 
+---
+  1. JIT (for development workflow)
+  2. AOT (you can get the deployable code)
+

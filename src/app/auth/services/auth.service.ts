@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-// import auth feature 
+// import auth feature
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 

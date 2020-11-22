@@ -1,0 +1,59 @@
+
+1. Building Block wise project structure
+  src/
+    app/
+      components/
+        dashboard/
+        auth/
+          login/
+      directives/
+      services/
+      
+
+2. Feature wise project structure (Recommended)
+  src/ 
+    app/
+      shared/
+        header/
+        footer/
+        menu/
+      about/
+      concepts/
+        components/
+          cpb/
+          ceb/
+          ...
+          ...
+          ...
+          ...
+        directives/ 
+          colorizer/
+      home/
+      auth/
+        components/
+          login/
+          signup/
+          reset-pw/
+        services/
+      reports/
+        list/
+        archive/
+      dashboard/
+      users/
+        components
+          add-user/
+          list-users/
+          user-details/
+          edit-user/
+          delete-user
+        directives/
+        services/
+        models/
+        
+      ....
+      ....
+      ....
+      ....
+====
+
+

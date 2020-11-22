@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
   signupHandler( signupFormData: NgForm ){
     // get the data from the form
     console.log(signupFormData.value);
-    this.authService.signup(signupFormData.value)
+    this.authService.signup(signupFormData.value);
   }
 
 }

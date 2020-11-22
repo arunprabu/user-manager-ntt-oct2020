@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   loginHandler( loginFormData: any ) {
     console.log(loginFormData);
 
-    this.authService.login(loginFormData.value)
+    this.authService.login(loginFormData.value);
   }
 
 }
